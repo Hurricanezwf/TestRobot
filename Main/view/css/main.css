@@ -22,5 +22,5 @@ a{text-decoration:none;}
 .cloud dt{background-image:url(../images/left/cloud.png)}
 .syetem_management dt{background-image:url(../images/left/syetem_management.png)}
 .source dt{background-image:url(../images/left/source.png)}
-.statistics dt{background-image:url(../images/left/statistics.png)}
+.account dt{background-image:url(../images/left/statistics.png)}
 .leftsidebar_box dl dd:last-child{padding-bottom:10px;}

@@ -12,8 +12,8 @@ $json = array(
     'cmd' => 'cl_login_request',
     'guid' => $guid,
 );
-$post_data=json_encode($json);
-$res = PostMsg(1, $post_data);
+$post_data = json_encode($json);
+$res = PostMsg($post_data);
 
 $dt = json_decode($res);
 if (0 != $dt->reply_code) {

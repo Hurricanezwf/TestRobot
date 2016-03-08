@@ -75,9 +75,9 @@
 			<dd><a href="#">推广管理</a></dd>
 		</dl>
 	
-		<dl class="statistics">
-			<dt>统计分析<img src="images/left/select_xl01.png"></dt>
-			<dd class="first_dd"><a href="#">客户统计</a></dd>
+        <dl class="account">
+			<dt>账号管理<img src="images/left/select_xl01.png"></dt>
+			<dd class="first_dd"><a href="../control/account/logout.php">退出登录</a></dd>
 		</dl>
 	
 	</div>
