@@ -1,8 +1,7 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Expires" content="0">
+ <!DOCTYPE HTML>
+ <html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
@@ -18,5 +17,5 @@
         ID:<input type="text" id="guid" name="guid" />
         <input type="button" id="login" value="login" />
     </form>
-    </body>
+</body>
 </html>
