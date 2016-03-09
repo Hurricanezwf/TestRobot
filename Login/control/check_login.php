@@ -2,7 +2,7 @@
 require_once '../../Common/network/http.php';
 require_once '../../Common/config/config.php';
 
-if (!isset($_SESSION)) {
+if (!session_id()) {
     session_start();
 }
 $ssid = $_POST['ssid'];
@@ -24,10 +24,12 @@ $dt = json_decode($res);
 if (0 != $dt->reply_code) {
     echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"3; url=$LoginURL\"><br>";
     echo "Error Message:$dt->msg<br>";
+    echo "Please try again 10 seconds later<br>";
     echo "redirect to login page after 3 seconds...<br>";
 } else {
     $cmd = $dt->cmd;
     if ($cmd == "gc_enter_game_reply") {
+        $_SESSION['user'] = $guid;
         header("Location: $MainPageURL?ssid=$ssid");
     }
 }

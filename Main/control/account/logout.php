@@ -1,23 +1,13 @@
 <?php
 require_once '../../../Common/network/http.php';
 require_once '../../../Common/config/config.php';
+require_once '../../../Common/php/check_session.php';
 
-if (!isset($_SESSION)) {
-    session_start();
-}
 $ssid = $_GET['ssid'];
-if (empty($ssid)) {
+if (!is_session_valid($ssid)) {
     header("Location: /TestRobot/Login/view/login.php");
-    return;
+    exit;
 }
-
-$user = $_SESSION['user'];
-if (empty($user)) {
-    echo "<script>alert('user not login')</script>";
-    header("Location: /TestRobot/Login/view/login.php");
-    return;
-}
-
 
 $json = array(
     'cmd' => 'ca_logout_request',

@@ -1,21 +1,13 @@
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-$ssid = $_GET['ssid'];
-if (empty($ssid)) {
-    header("Location: /TestRobot/Login/view/login.php");
-    return;
-}
-session_id($ssid);
+require_once '../../Common/php/check_session.php';
 
-$user = $_SESSION['user'];
-if (empty($user)) {
-    echo "<script>alert('user not login')</script>";
+$ssid = $_GET['ssid'];
+if (!is_session_valid($ssid)) {
     header("Location: /TestRobot/Login/view/login.php");
-    return;
+    exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
