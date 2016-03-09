@@ -1,10 +1,10 @@
-<!--?php
+<?php
 if (!session_id()) {
     session_start();
 }
 
 $ssid = session_id();
-?-->
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -36,7 +36,7 @@ $ssid = session_id();
                 <span class="passwd_logo"></span> 
                 <input class="ipt" id="passwd" type="password" placeholder="无需输入密码" name="passwd" />
             </p>
-            <!--?php echo "<input type='hidden' name='ssid' value='$ssid' />"; ?-->
+            <?php echo "<input type='hidden' name='ssid' value='$ssid' />"; ?>
             <input class="sbm" type="button" id="login" value="login" />
         </form>
     </div>
