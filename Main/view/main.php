@@ -1,3 +1,21 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+$ssid = $_GET['ssid'];
+if (empty($ssid)) {
+    header("Location: /TestRobot/Login/view/login.php");
+    return;
+}
+session_id($ssid);
+
+$user = $_SESSION['user'];
+if (empty($user)) {
+    echo "<script>alert('user not login')</script>";
+    header("Location: /TestRobot/Login/view/login.php");
+    return;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,7 +95,9 @@
 	
         <dl class="account">
 			<dt>账号管理<img src="images/left/select_xl01.png"></dt>
-			<dd class="first_dd"><a href="../control/account/logout.php">退出登录</a></dd>
+            <dd class="first_dd">
+                <?php echo "<a href='../control/account/logout.php?ssid=$ssid'>退出登录</a>"; ?>
+            </dd>
 		</dl>
 	
 	</div>

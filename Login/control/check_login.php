@@ -2,12 +2,17 @@
 require_once '../../Common/network/http.php';
 require_once '../../Common/config/config.php';
 
-$guid = $_POST['guid'];
-if (empty($guid)) {
+if (!isset($_SESSION)) {
+    session_start();
+}
+$ssid = $_POST['ssid'];
+if (empty($ssid)) {
     header("Location: $LoginURL");
     return;
 }
+session_id($ssid);
 
+$guid = $_POST['guid'];
 $json = array(
     'cmd' => 'cl_login_request',
     'guid' => $guid,
@@ -23,7 +28,7 @@ if (0 != $dt->reply_code) {
 } else {
     $cmd = $dt->cmd;
     if ($cmd == "gc_enter_game_reply") {
-        header("Location: $MainPageURL");
+        header("Location: $MainPageURL?ssid=$ssid");
     }
 }
 ?>
