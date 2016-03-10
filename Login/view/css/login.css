@@ -53,7 +53,7 @@ div {
 }
 
 .tou {
-    background: url("../images/tou.png") no-repeat;
+    background: url("/TestRobot/Login/view/images/tou.png") no-repeat;
     width: 97px;
     height: 92px;
     position: absolute;
@@ -62,7 +62,7 @@ div {
 }
 
 .left_hand {
-    background: url("../images/hand.png") no-repeat;
+    background: url("/TestRobot/Login/view/images/hand.png") no-repeat;
     width: 30px;
     height: 20px;
     left: 100px;
@@ -71,7 +71,7 @@ div {
 }
 
 .right_hand {
-    background: url("../images/hand.png") no-repeat;
+    background: url("/TestRobot/Login/view/images/hand.png") no-repeat;
     width: 30px;
     height: 20px;
     right: -112px;
@@ -93,7 +93,7 @@ p {
 }
 
 .account_logo {
-    background: url("../images/username.png") no-repeat;
+    background: url("/TestRobot/Login/view/images/username.png") no-repeat;
     padding: 10px 10px;
     position: absolute;
     top: 43px;
@@ -111,7 +111,7 @@ p {
 }
 
 .passwd_logo {
-    background: url("../images/password.png") no-repeat;
+    background: url("/TestRobot/Login/view/images/password.png") no-repeat;
     padding: 10px 10px;
     position: absolute;
     top: 12px;

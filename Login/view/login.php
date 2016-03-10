@@ -14,9 +14,9 @@ $ssid = session_id();
     <meta http-equiv="Cache" content="no-cache">
 
     <title>login</title>
-    <link rel="stylesheet" type="text/css" href="css/login.css"></link>
-    <script type="text/javascript" src="../../Common/js/jquery-2.2.1.min.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="/TestRobot/Login/view/css/login.css"></link>
+    <script type="text/javascript" src="/TestRobot/Common/js/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="/TestRobot/Login/view/js/login.js"></script>
 </head>
 
 <body>
@@ -27,7 +27,7 @@ $ssid = session_id();
             <div class="left_hand"></div>
             <div class="right_hand"></div>
         </div>
-        <form action="../control/check_login.php" method="POST">
+        <form action="/TestRobot/Login/control/check_login.php" method="POST">
             <p class="account">
                 <span class="account_logo"></span>
                 <input class="ipt" type="text" id="guid" placeholder="请输入账号" name="guid" />
