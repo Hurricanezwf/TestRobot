@@ -21,7 +21,7 @@ $post_data = json_encode($json);
 $res = PostMsg($post_data);
 
 $dt = json_decode($res);
-if (0 != $dt->reply_code) {
+if ($dt->reply_code > 0) {
     echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"3; url=$LoginURL\"><br>";
     echo "Error Message:$dt->msg<br>";
     echo "Please try again 10 seconds later<br>";
@@ -30,7 +30,10 @@ if (0 != $dt->reply_code) {
     $cmd = $dt->cmd;
     if ($cmd == "gc_enter_game_reply") {
         $_SESSION['user'] = $guid;
+        $_SESSION['user_data'] = $dt->data;
         header("Location: $MainPageURL?ssid=$ssid");
+    } else {
+        printf("Error: unknown cmd[%s]!<br>", $cmd);
     }
 }
 ?>

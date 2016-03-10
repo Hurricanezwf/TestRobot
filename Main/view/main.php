@@ -24,7 +24,6 @@ if (!is_session_valid($ssid)) {
 </head>
 
 <body id="bg">
-
 <div class="container">
 
 	<div class="leftsidebar_box">
@@ -88,11 +87,15 @@ if (!is_session_valid($ssid)) {
         <dl class="account">
 			<dt>账号管理<img src="images/left/select_xl01.png"></dt>
             <dd class="first_dd">
-                <?php echo "<a href='../control/account/logout.php?ssid=$ssid'>退出登录</a>"; ?>
+                <?php echo "<a href='../control/account/logout.php?ssid=$ssid'>退出登录</a>";?>
             </dd>
 		</dl>
 	
 	</div>
+
+    <div class="middle_content">
+        <iframe class="data_show" src="../control/user/user_data.php"></iframe>
+    </div>
 
 </div>
 </body>
