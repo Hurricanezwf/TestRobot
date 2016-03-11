@@ -30,7 +30,10 @@ if ($dt->reply_code > 0) {
     $cmd = $dt->cmd;
     if ($cmd == "gc_enter_game_reply") {
         $_SESSION['user'] = $guid;
-        $_SESSION['user_data'] = $dt->data;
+
+        $data = $dt->data;
+        $_SESSION['user_data'] = $data->user_data;
+        $_SESSION['item_data'] = $data->item_data;
         header("Location: $MainPageURL?ssid=$ssid");
     } else {
         printf("Error: unknown cmd[%s]!<br>", $cmd);

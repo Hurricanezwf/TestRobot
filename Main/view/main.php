@@ -18,9 +18,28 @@ if (!is_session_valid($ssid)) {
     <meta http-equiv="Cache" content="no-cache">
 
     <title>主界面</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css"></style>
+    <link href="css/main.css" rel="stylesheet" type="text/css"></link>
     <script type="text/javascript" src="../../Common/js/jquery-2.2.1.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#query_user_data").click(function(){
+            var url = "/TestRobot/Main/view/user/user_data.php?ssid=<?php echo $ssid; ?>"; 
+            $(".data_show").attr("src", url);
+        });
+
+        $("#query_item_data").click(function(){
+            var url = "/TestRobot/Main/view/item/item_data.php?ssid=<?php echo $ssid; ?>";
+            $(".data_show").attr("src", url);
+        });
+
+        $("#add_item").click(function(){
+            var url = "/TestRobot/Main/view/item/item_add.php?ssid=<?php echo $ssid; ?>";
+            $(".data_show").attr("src", url);
+        });
+    });
+</script>
+
 </head>
 
 <body id="bg">
@@ -29,19 +48,14 @@ if (!is_session_valid($ssid)) {
 	<div class="leftsidebar_box">
 		<div class="line"></div>
 		<dl class="system_log">
-			<dt>系统记录<img src="images/left/select_xl01.png"></dt>
-			<dd class="first_dd"><a href="#">充值记录</a></dd>
-			<dd><a href="#">短信充值记录</a></dd>
-			<dd><a href="#">消费记录</a></dd>
-			<dd><a href="#">操作记录</a></dd>
+			<dt>用户模块<img src="images/left/select_xl01.png"></dt>
+			<dd><a id="query_user_data" href="#">查看用户信息</a></dd>
 		</dl>
 	
 		<dl class="custom">
-			<dt>客户管理<img src="images/left/select_xl01.png"></dt>
-			<dd class="first_dd"><a href="#">客户管理</a></dd>
-			<dd><a href="#">试用/成交客户管理</a></dd>
-			<dd><a href="#">未成交客户管理</a></dd>
-			<dd><a href="#">即将到期客户管理</a></dd>
+			<dt>道具模块<img src="images/left/select_xl01.png"></dt>
+			<dd><a id="query_item_data" href="#">查看道具</a></dd>
+            <dd><a id="add_item" href="#">添加道具</a></dd>
 		</dl>
 	
 		<dl class="channel">
@@ -87,16 +101,17 @@ if (!is_session_valid($ssid)) {
         <dl class="account">
 			<dt>账号管理<img src="images/left/select_xl01.png"></dt>
             <dd class="first_dd">
-                <?php echo "<a href='../control/account/logout.php?ssid=$ssid'>退出登录</a>";?>
+                <?php echo "<a href='/TestRobot/Main/control/account/logout.php?ssid=$ssid'>退出登录</a>";?>
             </dd>
 		</dl>
 	
 	</div>
 
     <div class="middle_content">
-        <iframe class="data_show" src="../control/user/user_data.php"></iframe>
+        <iframe class='data_show' src=''></iframe>
     </div>
 
 </div>
 </body>
+
 </html>
