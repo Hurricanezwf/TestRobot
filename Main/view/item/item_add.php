@@ -10,10 +10,15 @@ if (!is_session_valid($ssid)) {
 
 <!DOCTYPE HTML>
 <html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/TestRobot/Common/css/banneralert.css"></link>
+    <script type="text/javascript" src="../../../Common/js/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="/TestRobot/Common/js/banneralert.min.js"></script>
+</head>
 <body>
-    <form action="/TestRobot/Main/control/item/add_item.php" method="POST">
+    <form method="post" action="/TestRobot/Main/control/item/add_item.php">
         道具类型:
-        <select name="item_tid">
+        <select id="item_tid" name="item_tid">
         <?php
             $file_path = "../../../Common/csv/item.csv";
             if (file_exists($file_path) && is_readable($file_path)) {
@@ -33,20 +38,35 @@ if (!is_session_valid($ssid)) {
 
         &nbsp;&nbsp;&nbsp;添加数量:
         <input id="item_num" type="text" name="item_num" />
+        <input type='hidden' name='ssid' />
         <input id="item_add" type="button" value="添加" />
     </form>
 </body>
 
-<script type="text/javascript" src="../../../Common/js/jquery-2.2.1.min.js"></script>
 <script>
    $("#item_add").click(function(){
-       var num = $("#item_num");
-       if ($("#item_num").val() == "") {
+       var tid = $("#item_tid").val();
+       var num = $("#item_num").val();
+       if (num == null) {
            alert("please enter add number!"); 
-       } else if (isNaN(num) || num<=0 ) {
-           alert("add number should be a number and over zero!");
+       } else if (isNaN(num) || num<=0 || num > 99999) {
+           alert("add number should be (0, 99999]!");
        } else {
-           $("form").submit();
+           $("#item_num").val("");
+           $.post("/TestRobot/Main/control/item/add_item.php",
+                {
+                    item_tid : tid,
+                    item_num : num,
+                    ssid     : <?php echo "\"$ssid\"";?>
+                },
+                function(data, status){
+                    $("body").showbanner({
+                        content : data,
+                        position: "bottom",
+                        duration: 10000
+                    }); 
+                }
+           );
        }
    });
 </script>

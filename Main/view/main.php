@@ -23,6 +23,7 @@ if (!is_session_valid($ssid)) {
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
+        $(".data_show").attr("src", "/TestRobot/Main/view/enter_game.php?ssid=<?php echo $ssid; ?>");
         $("#query_user_data").click(function(){
             var url = "/TestRobot/Main/view/user/user_data.php?ssid=<?php echo $ssid; ?>"; 
             $(".data_show").attr("src", url);
