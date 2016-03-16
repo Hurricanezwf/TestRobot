@@ -36,6 +36,7 @@ a{text-decoration:none;}
     float: left;
     height:100%;
     width:100%;
-    margin-left:10px;
+    margin:0px;
     border:0px;
+    position:absolute;
 }

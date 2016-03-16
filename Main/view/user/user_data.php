@@ -17,6 +17,7 @@ if (!is_session_valid($ssid)) {
     <link href="/TestRobot/Common/css/common.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body>
+    <hr><h3>USER_DATA</h3>
     <?php
         $user_data = $_SESSION['user_data'];
         ShowUserData($user_data);

@@ -63,7 +63,7 @@ if (!is_session_valid($ssid)) {
                     $("body").showbanner({
                         content : data,
                         position: "bottom",
-                        duration: 10000
+                        duration: 999999999
                     }); 
                 }
            );

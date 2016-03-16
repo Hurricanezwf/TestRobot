@@ -1,6 +1,7 @@
 <?php
 require_once '../../Common/network/http.php';
 require_once '../../Common/config/config.php';
+require_once '../../Common/php/sort.php';
 
 if (!session_id()) {
     session_start();
@@ -32,8 +33,11 @@ if ($dt->reply_code > 0) {
         $_SESSION['user'] = $guid;
 
         $data = $dt->data;
+        $item_data = $data->item_data;
+        usort($item_data, "SortItemData");
+
         $_SESSION['user_data'] = $data->user_data;
-        $_SESSION['item_data'] = $data->item_data;
+        $_SESSION['item_data'] = $item_data;
         header("Location: $MainPageURL?ssid=$ssid");
     } else {
         printf("Error: unknown cmd[%s]!<br>", $cmd);
