@@ -33,6 +33,7 @@ if (!is_session_valid($ssid)) {
                 echo "<th>item_tid</th>";
                 echo "<th>item_num</th>";
                 echo "<th>operation</th>";
+                echo "<th>description</th>";
                 echo "</tr>";
 
                 foreach ($item_data as $item_single) {
@@ -41,6 +42,7 @@ if (!is_session_valid($ssid)) {
                     $output .= "<td>$item_single->tid</td>";
                     $output .= "<td>$item_single->num</td>";
                     $output .= "<td><a href='#'>使用</a></td>";
+                    $output .= "<td>道具描述</td>";
                     $output .= "</tr>";
                     echo $output;
                 }

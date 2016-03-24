@@ -1,2 +1,5 @@
 favicon.ico
 *.swp
+.**.swp
+.svn/
+*.csv
